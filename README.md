@@ -1,6 +1,6 @@
 # GVPS
 
-A new Flutter project.
+A Flutter project, in which student's data is managed and can be updated according to class.
 
 ## Getting Started
 
