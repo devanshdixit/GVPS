@@ -1,5 +1,7 @@
+import 'package:GVPS/screens/home/classespages/classdetails.dart';
 import 'package:GVPS/screens/home/classespages/classlist.dart';
 import 'package:GVPS/services/studentData.dart';
+import 'package:GVPS/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +17,7 @@ class _ClassPageState extends State<ClassPage> {
     int classno = ModalRoute.of(context).settings.arguments;
     StudentData studentData = StudentData(classno: classno);
     if (classno == 0) {
-      title = Text('Total Students');
+      title = Text('All Students');
     } else {
       title = Text('Class $classno');
     }
@@ -30,6 +32,24 @@ class _ClassPageState extends State<ClassPage> {
           backgroundColor: Colors.grey[850],
           title: title,
           elevation: 0.0,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: RaisedButton(
+                color: Colors.grey[850],
+                child: Text(
+                  'Details',
+                  style: style.copyWith(
+                      fontSize: 20.0, backgroundColor: Colors.grey[900]),
+                ),
+                onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return ClassDetails();
+                    }),
+              ),
+            ),
+          ],
         ),
         body: ClassList(),
       ),

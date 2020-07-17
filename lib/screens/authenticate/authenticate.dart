@@ -30,53 +30,56 @@ class _AuthenticateState extends State<Authenticate> {
               title: Text(title),
             ),
             body: SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    OutlineButton(
-                      onPressed: () async {
-                        setState(() {
-                          loading = true;
-                        });
-                        dynamic result = await _authService.signInWithGoogle();
-                        if (result == null) {
+              child: Center(
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      OutlineButton(
+                        onPressed: () async {
                           setState(() {
-                            error = 'please enter valid email or password';
-                            loading = false;
+                            loading = true;
                           });
-                        }
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      highlightElevation: 0,
-                      borderSide: BorderSide(color: Colors.blue),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Image(
-                                image: AssetImage("assets/google_logo.png"),
-                                height: 35.0),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Sign in with Google',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
+                          dynamic result =
+                              await _authService.signInWithGoogle();
+                          if (result == null) {
+                            setState(() {
+                              error = 'please enter valid email or password';
+                              loading = false;
+                            });
+                          }
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        highlightElevation: 0,
+                        borderSide: BorderSide(color: Colors.blue),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image(
+                                  image: AssetImage("assets/google_logo.png"),
+                                  height: 35.0),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Sign in with Google',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

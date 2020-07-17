@@ -29,7 +29,6 @@ class StudentData {
       paidfees: doc.data['paidfees'] ?? '0',
       remainingfees: doc.data['remainingfees'] ?? '0',
       totalfees: doc.data['totalfees'] ?? '0',
-      mobileno: doc.data['mobileno'] ?? 0,
     );
   }
 

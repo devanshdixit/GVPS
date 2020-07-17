@@ -1,5 +1,6 @@
 import 'package:GVPS/screens/home/homepage.dart';
 import 'package:GVPS/screens/home/profile.dart';
+import 'package:GVPS/shared/constants.dart';
 
 import 'package:flutter/material.dart';
 import 'package:GVPS/services/auth.dart';
@@ -28,6 +29,18 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[900],
+      drawer: Drawer(
+        child: Container(
+          color: Colors.grey[900],
+          child: SafeArea(
+              child: Text(
+            'data',
+            style: style.copyWith(
+              fontSize: 20.0,
+            ),
+          )),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
